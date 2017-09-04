@@ -1,39 +1,63 @@
-<body style="background-color:#000;color:#FFF;" onload='galaga();'>
+<body style="background-color:#000;color:#FFF;" onload='void 0;'>
 <pre id=a></pre>
 <pre id=s></pre>
 <script>
 
-B=1024;
-A=B+14;
-C=33;
-S=1;
+R=1152;
+I=R+14;
+O=37;
+T=1;
 l=[];
 e=[];
+c=[];
 z=['jdajd', 'hhafh', 'fdafp', 'deaidadcaee', 'bealbamd', 'ada{c', 'bca|c',
   'cca|c', 'dcahabfabfabhc', 'ecahabfabfabed', 'fcahabfabedabd', 'gdagabfk',
   'hdabkade', 'ifakd', 'ldagd', 'og', 'qc'];
-for(p=0;p<32;p++)e.push(p+99);
-m=function(){a.innerHTML=f;o('A',A);l.map(o.bind(0,'|'));e.map(o.bind(0,'#'))}
+//for(p=0;p<36;p++)e.push(p+(3*37));
+m=function(){a.innerHTML=f;o('A',I);l.map(o.bind(0,'|'));e.map(o.bind(0,'#'));c.map(o.bind(0,'\\'))}
 o=function(c,i){g=a.innerHTML;a.innerHTML=(g.substring(0,i)+c+g.substring(i+1,f.length))}
-onkeydown=function(e){setTimeout(['l.push(A)',,,,,'A=Math.max(1023,A-1)',,'A=Math.min(1054,A+1)'][e.keyCode-32]);m()}
+onkeydown=function(e){setTimeout(['l.push(I)',,,,,'I=Math.max(1147,I-1)',,'I=Math.min(1182,I+1)'][e.keyCode-32]);m()}
+
+v=3*O+1
+for(r=0;r<z.length;r++){
+  w=v;
+  u=0;
+  t=z[r];
+  for(u=0;u<t.length;u++){
+    x=t.charCodeAt(u)-97;
+    if(u%3==1){
+      for(y=w;y<w+x;y++){
+        e.push(y);
+      }
+    }
+    if(u%3==2){
+      for(y=w;y<w+x;y++){
+        c.push(y);
+      }
+    }
+    w+=x;
+  }
+  v+=O;
+}
 
 setInterval(function () {
   j=[];
   while (k=l.pop()) {
-    if(~(q=e.indexOf(k-=C)))s.innerHTML=((S++)+'').fontcolor('red'),e.splice(q,1);
-    if(k>0)j.push(k);
+    (~(q=e.indexOf(k-=O)))
+      ? (s.innerHTML=((T++)+'').fontcolor('red'),e.splice(q,1))
+      : (~(q=c.indexOf(k)))
+        ? (s.innerHTML=((T++)+'').fontcolor('red'),c.splice(q,1))
+        : (k>0)
+          ? j.push(k)
+          : void 0;
   }
   l=j;
   m();
 }, 66);
 
-with(b='',Math)while(b.length<B)b+=Array(floor(random()*40)+10).join(' ')+'*';
-for(d=0;d<B;d+=32)f=a.innerHTML+=b.substring(d,d+32)+'\n';
+with(b='',Math)while(b.length<R)b+=Array(floor(random()*40)+10).join(' ')+'*';
+for(d=0;d<R;d+=36)f=a.innerHTML+=b.substring(d,d+36)+'\n';
 m();
-
-function enemies() {
-  e
-}
 
 </script>
 </body>

@@ -48,4 +48,17 @@ for line in chars:
 
 encoded = [''.join(s) for s in encoded]
 
+new_fist = ''
+for code in encoded:
+    for i, char in enumerate(code):
+        val = ord(char) - 97
+        if i % 3 == 0:
+            new_fist += " " * val
+        elif i % 3 == 1:
+            new_fist += "#" * val
+        elif i % 3 == 2:
+            new_fist += "\\" * val
+    new_fist += "\n"
+
 print(encoded)
+print(new_fist)
