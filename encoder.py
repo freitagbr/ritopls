@@ -1,4 +1,7 @@
 #!/usr/bin/env python3
+
+base64 = [chr(i) for i in range(49, 115)]
+
 fb = """
          ###         ###
        #######     #######
@@ -19,8 +22,27 @@ fb = """
                 ##
 """
 
+         ###         ###
+       #######     #######
+     ###     ###############
+   ####        ###   ##    ####
+ ####           #            ###
+###                          ##
+ ##                           ##
+  ##                           ##
+   ##       \     \     \       ##
+    ##       \     \     \    ###
+     ##       \     \    ### ###
+      ###      \     ##########
+       ### ##########   ####
+        #####          ###
+           ###      ###
+              ######
+                ##
+
+
+
 lines = fb.split("\n")
-encodes = [" ", "#", "\\"]
 chars = []
 encoded = []
 
@@ -38,27 +60,40 @@ for line in lines:
 for line in chars:
     e = []
     encoded.append(e)
-    i = 0
     for group in line:
-        while group[0] != encodes[i]:
-            e.append('a')
-            i = (i + 1) % 3
-        e.append(chr(len(group) + 97))
-        i = (i + 1) % 3
+        c = group[0]
+        l = len(group)
+        l = l + 32 if c == '#' else l
+        if c == '\\':
+            e.append('/')
+        else:
+            e.append(base64[l-1])
 
 encoded = [''.join(s) for s in encoded]
 
 new_fist = ''
 for code in encoded:
-    for i, char in enumerate(code):
-        val = ord(char) - 97
-        if i % 3 == 0:
-            new_fist += " " * val
-        elif i % 3 == 1:
-            new_fist += "#" * val
-        elif i % 3 == 2:
-            new_fist += "\\" * val
+    for char in code:
+        if char == "/":
+            new_fist += "\\"
+        else:
+            i = base64.index(char) + 1
+            if i < 32:
+                new_fist += " " * (i)
+            else:
+                new_fist += "#" * (i - 32)
     new_fist += "\n"
 
-print(encoded)
+# for code in encoded:
+#     for i, char in enumerate(code):
+#         val = ord(char) - 97
+#         if i % 3 == 0:
+#             new_fist += " " * val
+#         elif i % 3 == 1:
+#             new_fist += "#" * val
+#         elif i % 3 == 2:
+#             new_fist += "\\" * val
+#     new_fist += "\n"
+
+print('0'.join(encoded[1:-1]))
 print(new_fist)
