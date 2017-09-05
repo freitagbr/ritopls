@@ -22,25 +22,6 @@ fb = """
                  ##
 """
 
-         ###         ###
-       #######     #######
-     ###     ###############
-   ####        ###   ##    ####
- ####           #            ###
-###                          ##
- ##                           ##
-  ##                           ##
-   ##       \     \     \       ##
-    ##       \     \     \    ###
-     ##       \     \    ### ###
-      ###      \     ##########
-       ### ##########   ####
-        #####          ###
-           ###      ###
-              ######
-                ##
-
-
 
 lines = fb.split("\n")
 chars = []
@@ -77,23 +58,12 @@ for code in encoded:
         if char == "/":
             new_fist += "\\"
         else:
-            i = base64.index(char) + 1
+            i = ord(char) - 48
             if i < 32:
                 new_fist += " " * (i)
             else:
                 new_fist += "#" * (i - 32)
     new_fist += "\n"
-
-# for code in encoded:
-#     for i, char in enumerate(code):
-#         val = ord(char) - 97
-#         if i % 3 == 0:
-#             new_fist += " " * val
-#         elif i % 3 == 1:
-#             new_fist += "#" * val
-#         elif i % 3 == 2:
-#             new_fist += "\\" * val
-#     new_fist += "\n"
 
 print('0'.join(encoded[1:-1]))
 print(new_fist)
