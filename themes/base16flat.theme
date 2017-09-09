@@ -1,0 +1,22 @@
+
+Description="Base16 Flat"
+
+Default        = { Colour="#E74C3C" }
+Canvas         = { Colour="#ECF0F1" }
+Number         = { Colour="#E67E22" }
+Escape         = { Colour="#1ABC9C" }
+String         = { Colour="#2ECC71" }
+StringPreProc  = { Colour="#E67E22" }
+BlockComment   = { Colour="#95A5A6" }
+PreProcessor   = { Colour="#95A5A6" }
+LineNum        = { Colour="#95A5A6" }
+Operator       = { Colour="#7F8C8D" }
+LineComment = BlockComment
+Interpolation  = Escape
+
+Keywords = {
+  { Colour= "#9B59B6" },
+  { Colour= "#E74C3C" },
+  { Colour= "#F1C40F" },
+  { Colour= "#3498DB" },
+}
