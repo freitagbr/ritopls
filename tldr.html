@@ -1,82 +1,82 @@
 <head>
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
-<link href="https://fonts.googleapis.com/css?family=Montserrat:300,700" rel="stylesheet">
-<style>
-#main { 
-    width: 1200px;
-    margin: 0 auto;
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:300,700" rel="stylesheet">
+  <style>
+#main {
+  width: 1200px;
+  margin: 0 auto;
 }
 
 body {
-    background-color: #1c1e20;
-    color: #FFF;
+  background-color: #1c1e20;
+  color: #FFF;
 }
 
 a {
-    color: inherit;
-    text-decoration: none;
+  color: inherit;
+  text-decoration: none;
 }
 
 #sidebar {
-    width: 800px;
-    float: left;
-    font-family: 'Montserrat', sans-serif;
+  width: 800px;
+  float: left;
+  font-family: 'Montserrat', sans-serif;
 }
 
 #sidebar h1 {
-	display: block;
-    font-size: 5em;
-    margin-top: 0.67em;
-    margin-bottom: 0.25em;
-    margin-left: 0;
-    margin-right: 0;
-    font-weight: 700;
+  display: block;
+  font-size: 5em;
+  margin-top: 0.67em;
+  margin-bottom: 0.25em;
+  margin-left: 0;
+  margin-right: 0;
+  font-weight: 700;
 }
 
 #sidebar h2 {
-	display: block;
-	font-kerning: ;
-    font-size: 2em;
-    margin-top: 0.25em;
-    margin-bottom: 0.67em;
-    margin-left: 0;
-    margin-right: 0;
+  display: block;
+  font-kerning: ;
+  font-size: 2em;
+  margin-top: 0.25em;
+  margin-bottom: 0.67em;
+  margin-left: 0;
+  margin-right: 0;
 }
 
 #sidebar h2, h3 {
-    font-weight: 300;
+  font-weight: 300;
 }
 
-rRed {
-	color: #ED3029;
+riotred {
+  color: #ED3029;
 }
 
-bRed {
-	color: #E35252;
+red {
+  color: #E35252;
 }
 
-pBlue {
-	color: #1F8AD6;
+blue {
+  color: #1F8AD6;
 }
 
 #page-wrap  {
-    margin-left: 200px;
-    text-align: center;
-    padding: 5% 0;
-    display: block;
+  margin-left: 200px;
+  text-align: center;
+  padding: 5% 0;
+  display: block;
 }
-</style>
+  </style>
 </head>
 <body>
-<div id="main">
+  <div id="main">
     <div id="sidebar">
-        <h1>Hi <bRed>Riot!</bRed></h1>
-        <h2>
+      <h1>Hi <red>Riot!</red></h1>
+      <h2>
         TL;DR
         <br>
-        My Name is <bRed>Brandon</bRed>.
+        My Name is <red>Brandon</red>.
         <br>
-        I'm an Engineer <pBlue>@Panasonic</pBlue>.
+        I'm an Engineer <blue>@Panasonic</blue>.
         <br>
         I create tools &amp; services
         <br>
@@ -91,8 +91,8 @@ pBlue {
         I also play loads of games.
         <br>
         You should hire me.
-        </h2>
-        <h3>
+      </h2>
+      <h3>
         I challenged myself to include a game in my application.
         <br>
         So, I wrote a Galaga-like in 1267 bytes of JavaScript, which
@@ -101,32 +101,32 @@ pBlue {
         <br>
         Check out the source for the page!
         <br><br>
-        You can find me on GitHub as <bRed><a href="https://github.com/freitagbr">@freitagbr</a></bRed></h3>
+        You can find me on GitHub as <red><a href="https://github.com/freitagbr">@freitagbr</a></red></h3>
     </div>
     <div id="page-wrap">
-		<pre id=b></pre>
-        <pre id=K></pre>
-        <pre id=n><font color="#E35252">press space or tap to shoot</font></pre>
+      <pre id=b></pre>
+      <pre id=K></pre>
+      <pre id=n><font color="#E35252">press space or tap to shoot</font></pre>
     </div>
     <script>
-    // here be dragons
-    R=1152,I=1134,O=36,T=0,G=[],a=[],m=[],e /*              ________              */ =[],s=32,H='innerHTML',N=setTimeout,o=(
-    i,b,c)=>i.substring(b,c),onkeydown=e=>V /*          _jgN########Ngg_          */ ('10000002'[e.keyCode-s]),ontouchstart=
-    t=>V(W(t.changedTouches.item(0).screenX /*        _N##N@@""  ""9NN##Np_       */ /screen.width*3)),Y=(m,a)=>{a.map(i=>{h=
-    o(h,0,i)+m+o(h,i+1,f.length)})},C=0,L=0 /*       d###P            N####p      */ ;with(Math)M=_=>(W=floor)(random()*_);Q=(
-    P,b)=>Array(b+1).join(P),f=Q(' ',R),p=3 /*       "^^"              T####      */ ,N(l='A=A.map(j=>((j+=O)>R)?M(O):j==I&&\
-    L&&p--&&j||j);v()&&N(l,S)',S=64);for(A= /*                         d###P      */ [];C<R;)C=A[A.length-1]||0,A.push(C+M(s)+
-    S);P=['~(t=','.indexOf(k))?(n[H]=(++T+' /*                      _g###@F       */ +'"").fontcolor("ed3029"),','.splice(t,1)\
-    ):'],i=(':S9S08W5W06S5_04T8S3R4T02T;Q<' /*                   _gN##@P          */ +'S01SJR02RKR03RKR04R7/5/5/7R05R7/5/5/4S\
-    06R7/5/4S1S07S6/5Z08S1Z3T09U:S0<S6S0?V' /*                 gN###F"            */ +'0AR').split(0),N(g='j=[];while(k=G.pop\
-    ()){k-=O,eval(P.join("e")+P.join("m")+' /*                d###F               */ +'"(k>0)?j.push(k):0");if(~(z=a.indexOf(\
-    k)))a.splice(z,1)}G=j;q();v()&&N(g,s)', /*               0###F                */ s),q=_=>{h=f,D=[A,[I],e,m,a,G];for(F in J
-    ='*A#\\ |')Y(J[F],D[F]);for(_=O+1,z=O;z /*               0###F                */ <R/O*_;z+=_){h=o(h,0,z)+'\n'+o(h,z)}b[H]=
-    !v()?'win!':h,K[H]=Q('A',p?p:(T=0,d(),p /*               0###F                */ =3))},V=e=>{N(['I=Math.max(R-36,I-1)','G\
-    .push(I)','I=Math.min(R-1,I+1)'][e]);q( /*               "NN@'                */ );L=1},v=_=>T!=150,d=_=>{e=[],m=[];r=3*O;
-    for(c of i){w=r;for(u in c){if((U=c[u]) /*                                    */ =='/')m.push(w),x=1;else{x=U.charCodeAt(0
-    )-48,E=x<s?'a':(x-=s)&&'e';for(y=w;y<w+ /*               d###b                */ x;y++)+u&&eval(E+'.push(y)')}w+=x}r+=O}}
-    d();q()  //  Brandon Freitag,  (c) 2017 /*               q###p                */        freitagbr.github.io/ritopls
+// here be dragons
+R=1152,I=1134,O=36,T=0,G=[],a=[],m=[],e /*              ________              */ =[],s=32,H='innerHTML',N=setTimeout,o=(
+i,b,c)=>i.substring(b,c),onkeydown=e=>V /*          _jgN########Ngg_          */ ('10000002'[e.keyCode-s]),ontouchstart=
+t=>V(W(t.changedTouches.item(0).screenX /*        _N##N@@""  ""9NN##Np_       */ /screen.width*3)),Y=(m,a)=>{a.map(i=>{h=
+o(h,0,i)+m+o(h,i+1,f.length)})},C=0,L=0 /*       d###P            N####p      */ ;with(Math)M=_=>(W=floor)(random()*_);Q=(
+P,b)=>Array(b+1).join(P),f=Q(' ',R),p=3 /*       "^^"              T####      */ ,N(l='A=A.map(j=>((j+=O)>R)?M(O):j==I&&\
+L&&p--&&j||j);v()&&N(l,S)',S=64);for(A= /*                         d###P      */ [];C<R;)C=A[A.length-1]||0,A.push(C+M(s)+
+S);P=['~(t=','.indexOf(k))?(n[H]=(++T+' /*                      _g###@F       */ +'"").fontcolor("ed3029"),','.splice(t,1)\
+):'],i=(':S9S08W5W06S5_04T8S3R4T02T;Q<' /*                   _gN##@P          */ +'S01SJR02RKR03RKR04R7/5/5/7R05R7/5/5/4S\
+06R7/5/4S1S07S6/5Z08S1Z3T09U:S0<S6S0?V' /*                 gN###F"            */ +'0AR').split(0),N(g='j=[];while(k=G.pop\
+()){k-=O,eval(P.join("e")+P.join("m")+' /*                d###F               */ +'"(k>0)?j.push(k):0");if(~(z=a.indexOf(\
+k)))a.splice(z,1)}G=j;q();v()&&N(g,s)', /*               0###F                */ s),q=_=>{h=f,D=[A,[I],e,m,a,G];for(F in J
+='*A#\\ |')Y(J[F],D[F]);for(_=O+1,z=O;z /*               0###F                */ <R/O*_;z+=_){h=o(h,0,z)+'\n'+o(h,z)}b[H]=
+!v()?'win!':h,K[H]=Q('A',p?p:(T=0,d(),p /*               0###F                */ =3))},V=e=>{N(['I=Math.max(R-36,I-1)','G\
+.push(I)','I=Math.min(R-1,I+1)'][e]);q( /*               "NN@'                */ );L=1},v=_=>T!=150,d=_=>{e=[],m=[];r=3*O;
+for(c of i){w=r;for(u in c){if((U=c[u]) /*                                    */ =='/')m.push(w),x=1;else{x=U.charCodeAt(0
+)-48,E=x<s?'a':(x-=s)&&'e';for(y=w;y<w+ /*               d###b                */ x;y++)+u&&eval(E+'.push(y)')}w+=x}r+=O}}
+d();q()  //  Brandon Freitag,  (c) 2017 /*               q###p                */        freitagbr.github.io/ritopls
     </script>
-</div>
+  </div>
 </body>
