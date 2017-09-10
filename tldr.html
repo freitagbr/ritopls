@@ -2,14 +2,19 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
   <link href="https://fonts.googleapis.com/css?family=Montserrat:300,700" rel="stylesheet">
   <style>
-#main {
-  width: 1200px;
-  margin: 0 auto;
-}
-
 body {
+  font-family: 'Montserrat', sans-serif;
   background-color: #1c1e20;
   color: #FFF;
+  margin-left: 20;
+  margin-right: 20;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-evenly;
+}
+
+h2, h3 {
+  font-weight: 300;
 }
 
 a {
@@ -17,23 +22,26 @@ a {
   text-decoration: none;
 }
 
-#sidebar {
-  width: 800px;
-  float: left;
-  font-family: 'Montserrat', sans-serif;
+br {
+  margin: 0.5em;
 }
 
-#sidebar h1 {
+#side {
+  margin: 0 auto;
+  display: flex;
+  float: left;
+  flex-direction: column;
+}
+
+#tldr h1 {
   display: block;
   font-size: 5em;
   margin-top: 0.67em;
   margin-bottom: 0.25em;
-  margin-left: 0;
-  margin-right: 0;
   font-weight: 700;
 }
 
-#sidebar h2 {
+#tldr h2 {
   display: block;
   font-kerning: ;
   font-size: 2em;
@@ -43,8 +51,21 @@ a {
   margin-right: 0;
 }
 
-#sidebar h2, h3 {
-  font-weight: 300;
+#tldr p {
+  margin-top: 0;
+  margin-bottom: 0;
+  max-width: 520;
+}
+
+#what p {
+  max-width: 520;
+}
+
+#ritopls  {
+  margin: 0 auto;
+  text-align: center;
+  padding: 5% 0;
+  display: block;
 }
 
 riotred {
@@ -58,57 +79,32 @@ red {
 blue {
   color: #1F8AD6;
 }
-
-#page-wrap  {
-  margin-left: 200px;
-  text-align: center;
-  padding: 5% 0;
-  display: block;
-}
   </style>
 </head>
 <body>
-  <div id="main">
-    <div id="sidebar">
+  <div id="side">
+    <div id="tldr">
       <h1>Hi <red>Riot!</red></h1>
       <h2>
-        TL;DR
-        <br>
-        My Name is <red>Brandon</red>.
-        <br>
-        I'm an Engineer <blue>@Panasonic</blue>.
-        <br>
-        I create tools &amp; services
-        <br>
-        for airlines across the globe.
-        <br>
-        I also contribute open source.
-        <br>
-        Some of my code is probably
-        <br>
-        in your stack!
-        <br>
-        I also play loads of games.
-        <br>
-        You should hire me.
+        <p>TL;DR</p>
+        <p>My Name is <red>Brandon</red>. I'm an Engineer <blue>@Panasonic</blue>. I create tools &amp; services for airlines across the globe.</p>
+        <p>I contribute open source. Some of my code is probably in your stack! I also play loads of games.</p>
+        <p>You should hire me.</p>
       </h2>
-      <h3>
-        I challenged myself to include a game in my application.
-        <br>
-        So, I wrote a Galaga-like in 1267 bytes of JavaScript, which
-        <br>
-        is small enough to put at the bottom of a cover letter.
-        <br>
-        Check out the source for the page!
-        <br><br>
-        You can find me on GitHub as <red><a href="https://github.com/freitagbr">@freitagbr</a></red></h3>
     </div>
-    <div id="page-wrap">
-      <pre id=b></pre>
-      <pre id=K></pre>
-      <pre id=n><font color="#E35252">press space or tap to shoot</font></pre>
+    <div id="what">
+      <p>I challenged myself to include a game in my application.</p>
+      <p>So, I wrote a Galaga-like in 1267 bytes of JavaScript, which is small enough to put at the bottom of a cover letter.</p>
+      <p>Check out the source for the page!</p>
+      <p>You can find me on GitHub as <red><a href="https://github.com/freitagbr">@freitagbr</a></red></p>
     </div>
-    <script>
+  </div>
+  <div id="ritopls">
+    <pre id=b></pre>
+    <pre id=K></pre>
+    <pre id=n><font color="#E35252">press space or tap to shoot</font></pre>
+  </div>
+  <script>
 // here be dragons
 R=1152,I=1134,O=36,T=0,G=[],a=[],m=[],e /*              ________              */ =[],s=32,H='innerHTML',N=setTimeout,o=(
 i,b,c)=>i.substring(b,c),onkeydown=e=>V /*          _jgN########Ngg_          */ ('10000002'[e.keyCode-s]),ontouchstart=
@@ -127,6 +123,5 @@ k)))a.splice(z,1)}G=j;q();v()&&N(g,s)', /*               0###F                */
 for(c of i){w=r;for(u in c){if((U=c[u]) /*                                    */ =='/')m.push(w),x=1;else{x=U.charCodeAt(0
 )-48,E=x<s?'a':(x-=s)&&'e';for(y=w;y<w+ /*               d###b                */ x;y++)+u&&eval(E+'.push(y)')}w+=x}r+=O}}
 d();q()  //  Brandon Freitag,  (c) 2017 /*               q###p                */        freitagbr.github.io/ritopls
-    </script>
-  </div>
+  </script>
 </body>
