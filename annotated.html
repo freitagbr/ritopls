@@ -250,7 +250,7 @@ q = _ => {
     
     K[H] = Q(          // <pre> K represents the number of lives the player has left,
         'A',           // which are represented with the letter 'A', 
-        p              // repeated as many times as
+        p > 0          // repeated as many times as
             ? p        // the number of lives left.
             : (        // If the number of lives reaches 0, that means game over, so 
                 T = 0, // reset the score,
