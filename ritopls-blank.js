@@ -1,5 +1,5 @@
 R=1152,I=1134,O=36,T=0,G=[],a=[],m=[],e /*                                    */ =[],s=32,H='innerHTML',N=setTimeout,o=(
-i,b,c)=>i.substring(b,c),onkeydown=e=>V /*                                    */ ('10000002'[e.keyCode-s]),ontouchstart=
+i,b,c)=>i.substring(b,c),onkeydown=e=>V /*                                    */ ('1----0-2'[e.keyCode-s]),ontouchstart=
 t=>V(W(t.changedTouches.item(0).screenX /*                                    */ /screen.width*3)),Y=(m,a)=>{a.map(i=>{h=
 o(h,0,i)+m+o(h,i+1,f.length)})},C=0,L=0 /*                                    */ ;with(Math)M=_=>(W=floor)(random()*_);Q=(
 P,b)=>Array(b+1).join(P),f=Q(' ',R),p=3 /*                                    */ ,N(l='A=A.map(j=>((j+=O)>R)?M(O):j==I&&\
