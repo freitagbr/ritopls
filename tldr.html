@@ -1,111 +1,35 @@
 <head>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
-  <link href="https://fonts.googleapis.com/css?family=Montserrat:300,700" rel="stylesheet">
-  <style>
-body {
-  font-family: 'Montserrat', sans-serif;
-  background-color: #1c1e20;
-  color: #FFF;
-  margin-left: 20;
-  margin-right: 20;
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: space-evenly;
-}
-
-h2, h3 {
-  font-weight: 300;
-}
-
-a {
-  color: inherit;
-  text-decoration: none;
-}
-
-br {
-  margin: 0.5em;
-}
-
-#side {
-  margin: 0 auto;
-  display: flex;
-  float: left;
-  flex-direction: column;
-}
-
-#tldr h1 {
-  display: block;
-  font-size: 5em;
-  margin-top: 0.67em;
-  margin-bottom: 0.25em;
-  font-weight: 700;
-}
-
-#tldr h2 {
-  display: block;
-  font-kerning: ;
-  font-size: 2em;
-  margin-top: 0.25em;
-  margin-bottom: 0.67em;
-  margin-left: 0;
-  margin-right: 0;
-}
-
-#tldr p {
-  margin-top: 0;
-  margin-bottom: 0;
-  max-width: 520;
-}
-
-#what p {
-  max-width: 520;
-}
-
-#ritopls  {
-  margin: 0 auto;
-  text-align: center;
-  padding: 5% 0;
-  display: block;
-}
-
-riotred {
-  color: #ED3029;
-}
-
-red {
-  color: #E35252;
-}
-
-blue {
-  color: #1F8AD6;
-}
-  </style>
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
+	<link href="https://fonts.googleapis.com/css?family=Montserrat:300,700" rel="stylesheet">
+	<style>
+body{font-family:'Montserrat', sans-serif;background-color:#1c1e20;color:#FFF;margin-left:20;margin-right:20;display:flex;flex-flow:row wrap;justify-content:space-evenly}h2,h3{font-weight:300}a{color:inherit;text-decoration:none}br{margin:0.5em}#side{margin:0 auto;display:flex;float:left;flex-direction:column}#tldr h1{display:block;font-size:5em;margin-top:0.67em;margin-bottom:0.25em;font-weight:700}#tldr h2{display:block;font-kerning:;font-size:2em;margin:0.25em 0 0.67em}#tldr p{margin-top:0;margin-bottom:0;max-width:520}#what p{max-width:520}#ritopls{margin:0 auto;text-align:center;padding:5% 0;display:block}riotred{color:#ED3029}red{color:#E35252}blue{color:#1F8AD6}
+	</style>
 </head>
 <body>
-  <div id="side">
-    <div id="tldr">
-      <h1>Hi <red>Riot!</red></h1>
-      <h2>
-        <p>TL;DR</p>
-        <p>My Name is <red>Brandon</red>. I'm an Engineer <blue>@Panasonic</blue>. I create tools &amp; services for airlines across the globe.</p>
-        <p>I contribute open source. Some of my code is probably in your stack! I also play loads of games.</p>
-        <p>You should hire me.</p>
-      </h2>
-    </div>
-    <div id="what">
-      <p>I challenged myself to include a game in my application.</p>
-      <p>So, I wrote a Galaga-like in 1267 bytes of JavaScript, which is small enough to put at the bottom of a cover letter.</p>
-      <p>Check out the source for the page!</p>
-      <p>You can find me on GitHub as <red><a href="https://github.com/freitagbr">@freitagbr</a></red></p>
-    </div>
-  </div>
-  <div id="ritopls">
-    <pre id=b></pre>
-    <pre>&lt;&lt;               ||               &gt;&gt;</pre>
-    <pre id=K></pre>
-    <pre id=n><font color="#E35252">press space or tap to shoot</font></pre>
-  </div>
-  <script>
+	<div id="side">
+		<div id="tldr">
+			<h1>Hi <riotred>Riot!</riotred></h1>
+			<h2>
+				<p>TL;DR</p>
+				<p>My Name is <red>Brandon</red>. I'm an Engineer <blue>@Panasonic</blue>. I create tools &amp; services for airlines across the globe.</p>
+				<p>I contribute to open source. Some of my code is probably in your stack! I also play loads of games.</p>
+				<p>You should hire me.</p>
+			</h2>
+		</div>
+		<div id="what">
+			<p>I challenged myself to include a game in my application.</p>
+			<p>So, I wrote a Galaga-like in 1269 bytes of JavaScript, which is small enough to fit at the bottom of a cover letter.</p>
+			<p>Check out the source for the page!</p>
+			<p>You can find me on GitHub as <red><a href="https://github.com/freitagbr">@freitagbr</a></red></p>
+		</div>
+	</div>
+	<div id="ritopls">
+		<pre id=b></pre>
+		<pre>&lt;&lt;               !!               &gt;&gt;</pre><pre id=K></pre>
+		<pre id=n><font color="#E35252">press space or tap to shoot
+arrows or tap left/right to move</font></pre>
+	</div>
+	<script>
 // here be dragons
 R=1152,I=1134,O=36,T=0,G=[],a=[],m=[],e /*              ________              */ =[],s=32,H='innerHTML',N=setTimeout,o=(
 i,b,c)=>i.substring(b,c),onkeydown=e=>V /*          _jgN########Ngg_          */ ('10000002'[e.keyCode-s]),ontouchstart=
@@ -113,16 +37,16 @@ t=>V(W(t.changedTouches.item(0).screenX /*        _N##N@@""  ""9NN##Np_       */
 o(h,0,i)+m+o(h,i+1,f.length)})},C=0,L=0 /*       d###P            N####p      */ ;with(Math)M=_=>(W=floor)(random()*_);Q=(
 P,b)=>Array(b+1).join(P),f=Q(' ',R),p=3 /*       "^^"              T####      */ ,N(l='A=A.map(j=>((j+=O)>R)?M(O):j==I&&\
 L&&p--&&j||j);v()&&N(l,S)',S=64);for(A= /*                         d###P      */ [];C<R;)C=A[A.length-1]||0,A.push(C+M(s)+
-S);P=['~(t=','.indexOf(k))?(n[H]=(++T+' /*                      _g###@F       */ +'"").fontcolor("ed3029"),','.splice(t,1)\
+S);P=['~(t=','.indexOf(k))?(n[H]=(++T+' /*                      _g###@F       */ +'"").fontcolor("E35252"),','.splice(t,1)\
 ):'],i=(':S9S08W5W06S5_04T8S3R4T02T;Q<' /*                   _gN##@P          */ +'S01SJR02RKR03RKR04R7/5/5/7R05R7/5/5/4S\
 06R7/5/4S1S07S6/5Z08S1Z3T09U:S0<S6S0?V' /*                 gN###F"            */ +'0AR').split(0),N(g='j=[];while(k=G.pop\
 ()){k-=O,eval(P.join("e")+P.join("m")+' /*                d###F               */ +'"(k>0)?j.push(k):0");if(~(z=a.indexOf(\
 k)))a.splice(z,1)}G=j;q();v()&&N(g,s)', /*               0###F                */ s),q=_=>{h=f,D=[A,[I],e,m,a,G];for(F in J
-='*A#\\ |')Y(J[F],D[F]);for(_=O+1,z=O;z /*               0###F                */ <R/O*_;z+=_){h=o(h,0,z)+'\n'+o(h,z)}b[H]=
-!v()?'win!':h,K[H]=Q('A',p?p:(T=0,d(),p /*               0###F                */ =3))},V=e=>{N(['I=Math.max(R-36,I-1)','G\
-.push(I)','I=Math.min(R-1,I+1)'][e]);q( /*               "NN@'                */ );L=1},v=_=>T!=150,d=_=>{e=[],m=[];r=3*O;
-for(c of i){w=r;for(u in c){if((U=c[u]) /*                                    */ =='/')m.push(w),x=1;else{x=U.charCodeAt(0
-)-48,E=x<s?'a':(x-=s)&&'e';for(y=w;y<w+ /*               d###b                */ x;y++)+u&&eval(E+'.push(y)')}w+=x}r+=O}}
-d();q()  //  Brandon Freitag,  (c) 2017 /*               q###p                */        freitagbr.github.io/ritopls
-  </script>
+='*A#\\ |')Y(J[F],D[F]);for(_=O+1,z=O;z /*               0###F                */ <R/O*_;z+=_)h=o(h,0,z)+'\n'+o(h,z);b[H]=
+!v()?'win!':h,K[H]=Q('A',p>0?p:(T=0,d() /*               0###F                */ ,p=3))},d=_=>{e=[],m=[],a=[],r=3*O;for(c
+of i){w=r;for(u in c){if((U=c[u])=='/') /*               "NN@'                */ m.push(w),x=1;else{x=U.charCodeAt(0)-48,E
+=x<s?'a':(x-=s)&&'e';for(y=w;y<w+x;y++) /*                                    */ +u&&eval(E+'.push(y)')}w+=x}r+=O}},V=e=>
+N(['I=Math.max(R-36,I-1)','G.push(I)',  /*               d###b                */ 'I=Math.min(R-1,I+1)'][e],q(),L=1),v=_=>
+T!=150;q(d()) // Brandon Freitag, (c) 2017               q###p                          freitagbr.github.io/ritopls
+	</script>
 </body>
