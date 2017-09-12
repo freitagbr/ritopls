@@ -7,23 +7,25 @@
 // the letter 'A'. The player can shoot lasers and must dodge asteroids. The puspose of the game
 // is to destroy a large asteroid in the shape of the Riot fist bump.
 //
-// The player has 3 lives. Every time the ship runs into an asteroid, a life is removed.
-// Lives are not deducted from the player until they take an action.
-// The player has to destroy every non-space character in the fist bump.
-// Once the player has destroyed the fist bump, they win!
+// The player has 3 lives. Every time the ship runs into an asteroid, the player loses a life.
+// However, lives are not deducted from the player until they take an action. The objective
+// is to destroy every non-space character in the fist bump. Once the player has destroyed
+// the fist bump, they win!
 //
 // The code is designed, first and foremost, to be as short as possible. The shorted version,
-// without comments, clocks in at 1267 characters, though a few bytes can be shaved off here
-// and there. Several techniques are used to reduce code size:
-//
+// without comments, clocks in at 1269 characters, though a few bytes can be shaved off here
+// and there. Some general techniques are used to reduce code size:
 //   - declaring variables globally
 //   - using eval to construct and eliminate repeated code
 //   - aliasing attributes and function names
 //   - packing multiple statements into one statement using the comma operator
-//   - replacing if statements with && operator short-circuiting or ternary statements
+//   - replacing if-statements with &&-operator short-circuiting or ternary statements
 //   - taking advantage of lvalues and rvalues to declare or set variables where they are used
+//   - using some ES2015 constructs, like fat-arrow functions and for..of loops
+//
+// The game runs on modern browsers, on both desktop and mobile.
 
-R = 1152 // the size of the board, 32 rows * 36 columns. it could be shortened by 1 byte, to "O*s"
+R = 1152 // the size of the board, 32 rows * 36 columns, which could be shortened by 1 byte to "O*s"
 I = 1134 // the starting position of the ship, just left of the middle on the last line
 O = 36   // length of a line, number of columns
 T = 0    // current score
@@ -42,22 +44,18 @@ N = setTimeout  // alias setTimeout to save 8 bytes
 o = (i, b, c) => i.substring(b,c)
 
 // This is where keystroke and touch handling is set up.
-//
 // The control scheme on a keyboard is this:
-//
 //   - Left arrow moves the ship left
 //   - Right arrow moves the ship right
 //   - Space shoots a laser
 //
 // The control scheme on a touchscreen is this:
-//
 //   - The left-third of the screen moves the ship left
 //   - The right-third of the screen moves the ship right
 //   - The middle-third of the screen shoots a laser
 //
 // In order to simplify the handling here, we need to convert keystrokes
 // and touches somehow so they can be handled the same way. So, the idea is this:
-//
 //   - For a touchscreen, just take the X coordinate of the registered touch,
 //     divide it by the screen width, multiply it by 3, and floor() it.
 //     This gives a 0 for moving left, 1 for shooting a laser, or 2 for moving right.
@@ -68,7 +66,7 @@ o = (i, b, c) => i.substring(b,c)
 //     Additionally, this prevents keys with the key codes 33-36 and 38 from being handled.
 //
 // The code is passed to V, which converts the code into the correct action to take.
-onkeydown = e => V('1----0-2'[e.keyCode-s])
+onkeydown = e => V('1----0-2'[e.keyCode - s])
 ontouchstart = t => V(W(t.changedTouches.item(0).screenX / screen.width * 3))
 
 // This function takes takes a character (m) and an array of positions (a),
@@ -105,23 +103,22 @@ Q = (P, b) => Array(b + 1).join(P)
 
 // This sets up the string that is rendered to the DOM. Initially, it is just an empty string
 // that is the length of the game board (R).
-f = Q(' ',R)
+f = Q(' ', R)
 
 p = 3 // current number of lives
 
 // In the browser, setTimeout accepts either a function or a string as its first argument.
 // If the first argument is a string, the string is eval'ed after the given timeout. Declaring
-// a string saves 1 byte over declaring a function. Also, the string and the timeout are saved in
+// a string saves 3 bytes over declaring a function. Also, the string and the timeout are saved in
 // the variables l and S. setTimeout is preferred over setInterval because the performance is
 // better over long periods of time. The code in the string is explained below in an unused function.
 N(l = 'A=A.map(j=>((j+=O)>R)?M(O):j==I&&L&&p--&&j||j);v()&&N(l,S)', S = 64)
 
 // This function has two purposes:
-//
 //   - it moves the asteroids down the board, on an interval of 64 ms
 //   - it detects if an asteroid has collided with the ship, and deducts
 //     a life if this occurs
-() => {
+;() => {
     // A stores the indices of all of the asteroids on the board.
     // The array is mapped over a function that changes their position,
     // and the new array is stored back in A
@@ -164,7 +161,7 @@ for (
 // The purpose of the code is to detect if a laser has collided with a # or \
 // character in the fist bump, and increment the score and remove the character from
 // the fist bump if this occurs.
-P=['~(t=','.indexOf(k))?(n[H]=(++T+"").fontcolor("E35252"),','.splice(t,1):']
+P = ['~(t=', '.indexOf(k))?(n[H]=(++T+"").fontcolor("E35252"),', '.splice(t,1):']
 
 // This is the fist bump, encoded in a particular way to save space.
 // The encoding method and decoding algorithm are explained below.
@@ -172,18 +169,18 @@ P=['~(t=','.indexOf(k))?(n[H]=(++T+"").fontcolor("E35252"),','.splice(t,1):']
 // individually, and are delimited by the character '0'. '0' is used,
 // instead of some other character, because splitting by a number
 // instead of a string saves 2 bytes (no quotes).
-i=':S9S08W5W06S5_04T8S3R4T02T;Q<S01SJR02RKR03RKR04R7/5/5/7R05R7/5/5/4S06R7/5/4S1S07S6/5Z08S1Z3T09U:S0<S6S0?V0AR'.split(0)
+i = ':S9S08W5W06S5_04T8S3R4T02T;Q<S01SJR02RKR03RKR04R7/5/5/7R05R7/5/5/4S06R7/5/4S1S07S6/5Z08S1Z3T09U:S0<S6S0?V0AR'.split(0)
 
 // This uses the same setTimeout technique explained above, and the code
 // is explained in the unused function below.
-N(g='j=[];while(k=G.pop()){k-=O,eval(P.join("e")+P.join("m")+"(k>0)?j.push(k):0");if(~(z=a.indexOf(k)))a.splice(z,1)}G=j;q();v()&&N(g,s)',s)
+N(g = 'j=[];while(k=G.pop()){k-=O,eval(P.join("e")+P.join("m")+"(k>0)?j.push(k):0");if(~(z=a.indexOf(k)))a.splice(z,1)}G=j;q();v()&&N(g,s)', s)
 
 // This function has several purposes:
 //   - it moves laser up the board, on an interval of 32 ms
 //   - it detects if a laser collided with a character of the fist bump,
 //     and removes both if that occurs
 //   - re-renders the board
-() => {
+;() => {
     j = [] // this temporary variable stores the array where the new
            // positions of the lasers will be stored
     while(k = G.pop()) { // iterates over every laser, removing it from the original array.
@@ -220,7 +217,6 @@ q = _ => {
     h = f // f stores a "blank" string the size of the board, so this is used a a blank canvas for the new render
 
     // This is the render pipeline, in the order they are added to the "canvas":
-    //
     //   - asteroids
     //   - the ship
     //   - \ characters in the fist bump
@@ -247,7 +243,7 @@ q = _ => {
     b[H] = !v()  // if the player has the highest possible score...
         ? 'win!' // they've won, so replace the board with the message 'win!'...
         : h      // otherwise, replace it with the new board state
-    
+
     K[H] = Q(          // <pre> K represents the number of lives the player has left,
         'A',           // which are represented with the letter 'A', 
         p > 0          // repeated as many times as
@@ -261,15 +257,14 @@ q = _ => {
 }
 
 // This function handles key presses or screen taps.
-// Above screen taps and keyboard presses were converted to:
-//
+// Above, screen taps and keyboard presses were converted to:
 //   - 0 for moving left
 //   - 1 for shooting a laser
 //   - 2 for moving right
 //
 // Here, the index is used to reference string of code corresponding
 // to the action, which is eval'ed using setTimeout with no delays
-V= e => {
+V = e => {
     N([
         'I=Math.max(R-36,I-1)', // move left, with a barrier at the leftmost position on the bottom row
         'G.push(I)',            // shoot a laser by adding a laser with the ships position to the laser array,
@@ -279,8 +274,8 @@ V= e => {
                                 // and still reference the correct code. Also, if e is '-', e.g. the user pressed
                                 // a key code that is in the range of keycode in the '1------0-2' string above,
                                 // nothing happens, because the return value is undefined
-    q() // render the board            
-    L=1 // set the flag that indicates an action has been taken to 1
+    q()   // render the board
+    L = 1 // set the flag that indicates an action has been taken to 1
 }
 
 // This function returns true if the user has the top score, or false if they haven't.
@@ -288,13 +283,12 @@ v = _ => T != 150
 
 // This function decodes the string representing the fist bump, into the positions for the fist bump.
 // The encoding scheme is as follows:
-
 //   - space characters are represented by ASCII codes from 49 ('1') to 80 ('P')
 //   - hash characters are represented by ASCII codes from 81 ('Q') to 112 ('p')
 //   - backslash characters are repersented by '/'
 //
 // The letter in the encoded string represents what character is being encoded, along with how many of the
-// character appear in a row. So, a '1' represent 1 space character, a 'P' represents 32 space characters
+// character appear in a row. So, a '1' represents 1 space character, a 'P' represents 32 space characters
 // in a row, a 'Q' represents 1 hash character, and a 'P' represents 32 hash characters in a row. In the
 // fist bump, the longest string of reoccurring characters is 27 spaces, so 32 was a nice round number to choose
 // above that. Backslashes only appear by themselves, so they can be represented by a single character. The
@@ -321,14 +315,14 @@ d= _ => {
                     ? 'a'                // choose the array of spaces...
                     : (x -= s) && 'e';   // otherwise, adjust the position by 32 and choose the array of hashes
                 for (y = w; y < w + x; y++) // for every decoded character...
-                    +u                      // ignore the character if its the first on the line -
-                                            // this is a cheap alternative to ambient occlusion so that
-                                            // the spaces to the left of the fist bump are not rendered
+                    +u                      // ignore the character if its the first on the line - this is a
+                                            //   cheap alternative to ambient occlusion so that the spaces
+                                            //   to the left of the fist bump are not rendered
                     && eval(E+'.push(y)')   // or add the position to the correct array
             }
-            w+=x // increment the position on the line by the number of decoded characters
+            w += x // increment the position on the line by the number of decoded characters
         }
-        r+=O // go to the next line
+        r += O // go to the next line
     }
 }
 
