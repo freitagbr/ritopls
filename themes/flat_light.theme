@@ -1,5 +1,5 @@
 
-Description="Base16 Flat"
+Description="Base16 __name__"
 
 Default        = { Colour="#E74C3C" }
 Canvas         = { Colour="#ECF0F1" }

@@ -1,0 +1,22 @@
+
+Description="Base16 __name__"
+
+Default        = { Colour="base08" }
+Canvas         = { Colour="base00" }
+Number         = { Colour="base09" }
+Escape         = { Colour="base0C" }
+String         = { Colour="base0B" }
+StringPreProc  = { Colour="base09" }
+BlockComment   = { Colour="base03" }
+PreProcessor   = { Colour="base03" }
+LineNum        = { Colour="base03" }
+Operator       = { Colour="base05" }
+LineComment = BlockComment
+Interpolation  = Escape
+
+Keywords = {
+  { Colour= "base0E" },
+  { Colour= "base08" },
+  { Colour= "base0A" },
+  { Colour= "base0D" },
+}

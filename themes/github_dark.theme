@@ -1,5 +1,5 @@
 
-Description="Base16 Flat"
+Description="Base16 __name__"
 
 Default        = { Colour="#ED6A43" }
 Canvas         = { Colour="#FFFFFF" }
@@ -10,7 +10,7 @@ StringPreProc  = { Colour="#0086B3" }
 BlockComment   = { Colour="#969896" }
 PreProcessor   = { Colour="#969896" }
 LineNum        = { Colour="#969896" }
-Operator       = { Colour="#C8C8FA" }
+Operator       = { Colour="#333333" }
 LineComment = BlockComment
 Interpolation  = Escape
 
