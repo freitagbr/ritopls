@@ -15,7 +15,7 @@ with open(template_file) as f:
     template = f.read()
 
 for base, color in bases.items():
-    template = template.replace(base, color)
+    template = template.replace(base, color.upper())
 
 theme_file = json_file.replace('json', 'theme')
 
