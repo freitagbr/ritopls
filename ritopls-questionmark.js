@@ -1,3 +1,4 @@
+// play me in your browser at freitagbr.github.io/ritopls
 R=1152,I=1134,O=36,T=0,G=[],a=[],m=[],e /*              ________              */ =[],s=32,H='innerHTML',N=setTimeout,o=(
 i,b,c)=>i.substring(b,c),onkeydown=e=>V /*          _jgN########Ngg_          */ ('1----0-2'[e.keyCode-s]),ontouchstart=
 t=>V(W(t.changedTouches.item(0).screenX /*        _N##N@@""  ""9NN##Np_       */ /screen.width*3)),Y=(m,a)=>{a.map(i=>{h=
