@@ -42,7 +42,7 @@ N = setTimeout  // alias setTimeout to save 8 bytes
 // o calls .substring on a string with 2 arguments.
 // This is used several times, so declaring it here
 // save several bytes.
-o = (i, b, c) => i.substring(b,c)
+o = (i, b, c) => i.substring(b, c)
 
 // This is where keystroke and touch handling is set up.
 // The control scheme on a keyboard is this:
@@ -162,7 +162,7 @@ for (
 // The purpose of the code is to detect if a laser has collided with a # or \
 // character in the fist bump, and increment the score and remove the character from
 // the fist bump if this occurs.
-P = ['~(t=', '.indexOf(k))?(n[H]=(++T+"").fontcolor("E35252"),', '.splice(t,1):']
+P = ['~(t=', '.indexOf(k))?(n[H]=(++T+"").fontcolor("E35252"),', '.splice(t,1)):']
 
 // This is the fist bump, encoded in a particular way to save space.
 // The encoding method and decoding algorithm are explained below.
@@ -233,13 +233,13 @@ q = _ => {
     // Also, the position of the ship is stored as a number, but the rest of
     // the values are arrays, so wrap it in an array just so it can be rendered
     // the same way as the other values.
-    D = [A,[I],e,m,a,G]
-    for(F in J = '*A#\\ |') // these are the characters corresponding to the steps
-                            // in the render pipeline, in the same order
-        Y(J[F], D[F])       // places character at the positions in the array into h
+    D = [A, [I], e, m, a, G]
+    for (F in J = '*A#\\ |') // these are the characters corresponding to the steps
+                             // in the render pipeline, in the same order
+        Y(J[F], D[F])        // places character at the positions in the array into h
 
-    for(_ = O+1, z = O; z < R / O * _; z += _) // starting at position 37, and for every 36 characters after,
-        h = o(h, 0, z) + '\n' + o(h, z)        // place a newline, so that the board is rendered correctly
+    for (_ = O + 1, z = O; z < R / O * _; z += _) // starting at position 37, and for every 36 characters after,
+        h = o(h, 0, z) + '\n' + o(h, z)           // place a newline, so that the board is rendered correctly
 
     b[H] = !v()  // if the player has the highest possible score...
         ? 'win!' // they've won, so replace the board with the message 'win!'...
@@ -256,31 +256,6 @@ q = _ => {
             )
     ) 
 }
-
-// This function handles key presses or screen taps.
-// Above, screen taps and keyboard presses were converted to:
-//   - 0 for moving left
-//   - 1 for shooting a laser
-//   - 2 for moving right
-//
-// Here, the index is used to reference string of code corresponding
-// to the action, which is eval'ed using setTimeout with no delays
-V = e => {
-    N([
-        'I=Math.max(R-36,I-1)', // move left, with a barrier at the leftmost position on the bottom row
-        'G.push(I)',            // shoot a laser by adding a laser with the ships position to the laser array,
-                                // so that the laser appears right above the ship when rendered
-        'I=Math.min(R-1,I+1)'   // move right, with a barrier at the rightmost position on the bottom row
-    ][e])                       // e is the code that chooses the correct code. e can be a number or string,
-                                // and still reference the correct code. Also, if e is '-', e.g. the user pressed
-                                // a key code that is in the range of keycode in the '1------0-2' string above,
-                                // nothing happens, because the return value is undefined
-    q()   // render the board
-    L = 1 // set the flag that indicates an action has been taken to 1
-}
-
-// This function returns true if the user has the top score, or false if they haven't.
-v = _ => T != 150
 
 // This function decodes the string representing the fist bump, into the positions for the fist bump.
 // The encoding scheme is as follows:
@@ -299,7 +274,7 @@ v = _ => T != 150
 // is 499 characters, so almost 50% of the original size is saved.
 //
 // This function is only run once when the page loads, and again every time a game over occurs.
-d= _ => {
+d = _ => {
     e = []    // reset the hash characters
     m = []    // reset the backslash characters
     a = []    // reset the space characters
@@ -319,7 +294,7 @@ d= _ => {
                     +u                      // ignore the character if its the first on the line - this is a
                                             //   cheap alternative to ambient occlusion so that the spaces
                                             //   to the left of the fist bump are not rendered
-                    && eval(E+'.push(y)')   // or add the position to the correct array
+                    && eval(E + '.push(y)') // or add the position to the correct array
             }
             w += x // increment the position on the line by the number of decoded characters
         }
@@ -327,7 +302,35 @@ d= _ => {
     }
 }
 
-d() // decode the fist bump
-q() // render the board
+// This function handles key presses or screen taps.
+// Above, screen taps and keyboard presses were converted to:
+//   - 0 for moving left
+//   - 1 for shooting a laser
+//   - 2 for moving right
+//
+// Here, the index is used to reference string of code corresponding
+// to the action, which is eval'ed using setTimeout with no delays
+V = e => N(
+    [
+        'I=Math.max(R-36,I-1)', // move left, with a barrier at the leftmost position on the bottom row
+        'G.push(I)',            // shoot a laser by adding a laser with the ships position to the laser array,
+                                // so that the laser appears right above the ship when rendered
+        'I=Math.min(R-1,I+1)'   // move right, with a barrier at the rightmost position on the bottom row
+    ][e],                       // e is the code that chooses the correct code. e can be a number or string,
+                                // and still reference the correct code. Also, if e is '-', e.g. the user pressed
+                                // a key code that is in the range of keycode in the '1------0-2' string above,
+                                // nothing happens, because the return value is undefined
+    q(),   // render the board
+    L = 1 // set the flag that indicates an action has been taken to 1
+)
+
+// This function returns true if the user has the top score, or false if they haven't.
+v = _ => T != 150
+
+// here, the fist bump is decoded and the board is rendered,
+// and by calling the first function inside the arguments for
+// the next, we can ensure that they're called in that order,
+// and save a byte
+q(d())
 
 </script></body>
